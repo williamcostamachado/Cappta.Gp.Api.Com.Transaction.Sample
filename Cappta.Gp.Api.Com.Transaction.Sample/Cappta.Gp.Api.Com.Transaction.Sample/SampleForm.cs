@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cappta.Gp.Api.Com.Transaction.Sample
@@ -30,7 +23,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 
         private void PagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var pagamento = new PagamentoDebito();
+            var pagamento = new Pagamento();
             pagamento.Show();
         }
     }

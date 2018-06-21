@@ -1,6 +1,6 @@
 ﻿namespace Cappta.Gp.Api.Com.Transaction.Sample
 {
-    partial class PagamentoDebito
+    partial class Pagamento
     {
         /// <summary>
         /// Required designer variable.
@@ -33,17 +33,17 @@
             this.radioButtonDebito = new System.Windows.Forms.RadioButton();
             this.radioButtonCredito = new System.Windows.Forms.RadioButton();
             this.radioButtonCrediario = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pagamentoDebito = new System.Windows.Forms.Button();
             this.pagamentoCredito = new System.Windows.Forms.Button();
             this.pagamentoCrediario = new System.Windows.Forms.Button();
             this.panelCredito = new System.Windows.Forms.Panel();
-            this.panelCrediario = new System.Windows.Forms.Panel();
-            this.numericUpDownNumeroParcelas = new System.Windows.Forms.NumericUpDown();
-            this.radioButtonAvista = new System.Windows.Forms.RadioButton();
-            this.radioButtonParcelado = new System.Windows.Forms.RadioButton();
-            this.labelNumeroParcelas = new System.Windows.Forms.Label();
-            this.radioButtonParceladoLoja = new System.Windows.Forms.RadioButton();
             this.radioButtonParceladoAdm = new System.Windows.Forms.RadioButton();
+            this.radioButtonParceladoLoja = new System.Windows.Forms.RadioButton();
+            this.labelNumeroParcelas = new System.Windows.Forms.Label();
+            this.radioButtonParcelado = new System.Windows.Forms.RadioButton();
+            this.radioButtonAvista = new System.Windows.Forms.RadioButton();
+            this.numericUpDownNumeroParcelas = new System.Windows.Forms.NumericUpDown();
+            this.panelCrediario = new System.Windows.Forms.Panel();
             this.panelCredito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumeroParcelas)).BeginInit();
             this.SuspendLayout();
@@ -98,14 +98,15 @@
             this.radioButtonCrediario.Text = "Crediario";
             this.radioButtonCrediario.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // pagamentoDebito
             // 
-            this.button1.Location = new System.Drawing.Point(0, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Pagamento débito";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pagamentoDebito.Location = new System.Drawing.Point(0, 233);
+            this.pagamentoDebito.Name = "pagamentoDebito";
+            this.pagamentoDebito.Size = new System.Drawing.Size(109, 23);
+            this.pagamentoDebito.TabIndex = 5;
+            this.pagamentoDebito.Text = "Pagamento débito";
+            this.pagamentoDebito.UseVisualStyleBackColor = true;
+            this.pagamentoDebito.Click += new System.EventHandler(this.PagamentoDebito);
             // 
             // pagamentoCredito
             // 
@@ -138,12 +139,56 @@
             this.panelCredito.Size = new System.Drawing.Size(166, 105);
             this.panelCredito.TabIndex = 8;
             // 
-            // panelCrediario
+            // radioButtonParceladoAdm
             // 
-            this.panelCrediario.Location = new System.Drawing.Point(184, 102);
-            this.panelCrediario.Name = "panelCrediario";
-            this.panelCrediario.Size = new System.Drawing.Size(150, 105);
-            this.panelCrediario.TabIndex = 9;
+            this.radioButtonParceladoAdm.AutoSize = true;
+            this.radioButtonParceladoAdm.Location = new System.Drawing.Point(7, 81);
+            this.radioButtonParceladoAdm.Name = "radioButtonParceladoAdm";
+            this.radioButtonParceladoAdm.Size = new System.Drawing.Size(94, 17);
+            this.radioButtonParceladoAdm.TabIndex = 5;
+            this.radioButtonParceladoAdm.Text = "Administradora";
+            this.radioButtonParceladoAdm.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonParceladoLoja
+            // 
+            this.radioButtonParceladoLoja.AutoSize = true;
+            this.radioButtonParceladoLoja.Checked = true;
+            this.radioButtonParceladoLoja.Location = new System.Drawing.Point(7, 58);
+            this.radioButtonParceladoLoja.Name = "radioButtonParceladoLoja";
+            this.radioButtonParceladoLoja.Size = new System.Drawing.Size(96, 17);
+            this.radioButtonParceladoLoja.TabIndex = 4;
+            this.radioButtonParceladoLoja.TabStop = true;
+            this.radioButtonParceladoLoja.Text = "Parcelado Loja";
+            this.radioButtonParceladoLoja.UseVisualStyleBackColor = true;
+            // 
+            // labelNumeroParcelas
+            // 
+            this.labelNumeroParcelas.AutoSize = true;
+            this.labelNumeroParcelas.Location = new System.Drawing.Point(3, 33);
+            this.labelNumeroParcelas.Name = "labelNumeroParcelas";
+            this.labelNumeroParcelas.Size = new System.Drawing.Size(103, 13);
+            this.labelNumeroParcelas.TabIndex = 3;
+            this.labelNumeroParcelas.Text = "Número de Parcelas";
+            // 
+            // radioButtonParcelado
+            // 
+            this.radioButtonParcelado.AutoSize = true;
+            this.radioButtonParcelado.Location = new System.Drawing.Point(84, 3);
+            this.radioButtonParcelado.Name = "radioButtonParcelado";
+            this.radioButtonParcelado.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonParcelado.TabIndex = 2;
+            this.radioButtonParcelado.Text = "Parcelado";
+            this.radioButtonParcelado.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAvista
+            // 
+            this.radioButtonAvista.AutoSize = true;
+            this.radioButtonAvista.Location = new System.Drawing.Point(12, 3);
+            this.radioButtonAvista.Name = "radioButtonAvista";
+            this.radioButtonAvista.Size = new System.Drawing.Size(54, 17);
+            this.radioButtonAvista.TabIndex = 1;
+            this.radioButtonAvista.Text = "Avista";
+            this.radioButtonAvista.UseVisualStyleBackColor = true;
             // 
             // numericUpDownNumeroParcelas
             // 
@@ -167,58 +212,14 @@
             0,
             0});
             // 
-            // radioButtonAvista
+            // panelCrediario
             // 
-            this.radioButtonAvista.AutoSize = true;
-            this.radioButtonAvista.Location = new System.Drawing.Point(12, 3);
-            this.radioButtonAvista.Name = "radioButtonAvista";
-            this.radioButtonAvista.Size = new System.Drawing.Size(54, 17);
-            this.radioButtonAvista.TabIndex = 1;
-            this.radioButtonAvista.Text = "Avista";
-            this.radioButtonAvista.UseVisualStyleBackColor = true;
+            this.panelCrediario.Location = new System.Drawing.Point(184, 102);
+            this.panelCrediario.Name = "panelCrediario";
+            this.panelCrediario.Size = new System.Drawing.Size(150, 105);
+            this.panelCrediario.TabIndex = 9;
             // 
-            // radioButtonParcelado
-            // 
-            this.radioButtonParcelado.AutoSize = true;
-            this.radioButtonParcelado.Location = new System.Drawing.Point(84, 3);
-            this.radioButtonParcelado.Name = "radioButtonParcelado";
-            this.radioButtonParcelado.Size = new System.Drawing.Size(73, 17);
-            this.radioButtonParcelado.TabIndex = 2;
-            this.radioButtonParcelado.Text = "Parcelado";
-            this.radioButtonParcelado.UseVisualStyleBackColor = true;
-            // 
-            // labelNumeroParcelas
-            // 
-            this.labelNumeroParcelas.AutoSize = true;
-            this.labelNumeroParcelas.Location = new System.Drawing.Point(3, 33);
-            this.labelNumeroParcelas.Name = "labelNumeroParcelas";
-            this.labelNumeroParcelas.Size = new System.Drawing.Size(103, 13);
-            this.labelNumeroParcelas.TabIndex = 3;
-            this.labelNumeroParcelas.Text = "Número de Parcelas";
-            // 
-            // radioButtonParceladoLoja
-            // 
-            this.radioButtonParceladoLoja.AutoSize = true;
-            this.radioButtonParceladoLoja.Checked = true;
-            this.radioButtonParceladoLoja.Location = new System.Drawing.Point(7, 58);
-            this.radioButtonParceladoLoja.Name = "radioButtonParceladoLoja";
-            this.radioButtonParceladoLoja.Size = new System.Drawing.Size(96, 17);
-            this.radioButtonParceladoLoja.TabIndex = 4;
-            this.radioButtonParceladoLoja.TabStop = true;
-            this.radioButtonParceladoLoja.Text = "Parcelado Loja";
-            this.radioButtonParceladoLoja.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonParceladoAdm
-            // 
-            this.radioButtonParceladoAdm.AutoSize = true;
-            this.radioButtonParceladoAdm.Location = new System.Drawing.Point(7, 81);
-            this.radioButtonParceladoAdm.Name = "radioButtonParceladoAdm";
-            this.radioButtonParceladoAdm.Size = new System.Drawing.Size(94, 17);
-            this.radioButtonParceladoAdm.TabIndex = 5;
-            this.radioButtonParceladoAdm.Text = "Administradora";
-            this.radioButtonParceladoAdm.UseVisualStyleBackColor = true;
-            // 
-            // PagamentoDebito
+            // Pagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,13 +228,13 @@
             this.Controls.Add(this.panelCredito);
             this.Controls.Add(this.pagamentoCrediario);
             this.Controls.Add(this.pagamentoCredito);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pagamentoDebito);
             this.Controls.Add(this.radioButtonCrediario);
             this.Controls.Add(this.radioButtonCredito);
             this.Controls.Add(this.radioButtonDebito);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.valor);
-            this.Name = "PagamentoDebito";
+            this.Name = "Pagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagamento";
             this.panelCredito.ResumeLayout(false);
@@ -251,7 +252,7 @@
         private System.Windows.Forms.RadioButton radioButtonDebito;
         private System.Windows.Forms.RadioButton radioButtonCredito;
         private System.Windows.Forms.RadioButton radioButtonCrediario;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button pagamentoDebito;
         private System.Windows.Forms.Button pagamentoCredito;
         private System.Windows.Forms.Button pagamentoCrediario;
         private System.Windows.Forms.Panel panelCredito;
