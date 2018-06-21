@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cappta.Gp.Api.Com.Transaction.Sample
 {
-    public partial class Form1 : Form
+    public partial class PagamentoDebito : Form
     {
-        public Form1()
+        public PagamentoDebito()
         {
             InitializeComponent();
         }

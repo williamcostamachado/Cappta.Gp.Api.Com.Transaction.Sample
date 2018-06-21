@@ -5,6 +5,20 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cappta.Gp.Api.Com.Transaction.Sample", "Cappta.Gp.Api.Com.Transaction.Sample\Cappta.Gp.Api.Com.Transaction.Sample.csproj", "{3CD4B59F-552A-458E-A43D-EBCD91722B22}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Domain", "0-Domain", "{E777C6D3-4CCB-4A4D-9E36-3615D0AF12B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Infra", "1-Infra", "{F1A852AC-FEF5-4C19-8DB2-FF2500E6C8B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Application", "2-Application", "{CA3B1A96-BE02-4003-BA1E-018FBBA9998F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Presentation", "3-Presentation", "{0BA47CFE-5493-42F8-8B9C-B57EE86EBF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cappta.Gp.Api.Com.Transaction.Domain", "Cappta.Gp.Api.Com.Transaction.Domain\Cappta.Gp.Api.Com.Transaction.Domain.csproj", "{AD8993BD-6D07-4E27-B543-C3B3F819C931}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cappta.Gp.Api.Com.Transaction.Infra", "Cappta.Gp.Api.Com.Transaction.Infra\Cappta.Gp.Api.Com.Transaction.Infra.csproj", "{1038E6C3-B948-4B61-A608-3E52FAE3934F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cappta.Gp.Api.Com.Transaction.Application", "Cappta.Gp.Api.Com.Transaction.Application\Cappta.Gp.Api.Com.Transaction.Application.csproj", "{EC7E3BC7-6849-446D-B339-98B0F1D1A3CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +29,26 @@ Global
 		{3CD4B59F-552A-458E-A43D-EBCD91722B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CD4B59F-552A-458E-A43D-EBCD91722B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CD4B59F-552A-458E-A43D-EBCD91722B22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8993BD-6D07-4E27-B543-C3B3F819C931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8993BD-6D07-4E27-B543-C3B3F819C931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8993BD-6D07-4E27-B543-C3B3F819C931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8993BD-6D07-4E27-B543-C3B3F819C931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1038E6C3-B948-4B61-A608-3E52FAE3934F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1038E6C3-B948-4B61-A608-3E52FAE3934F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1038E6C3-B948-4B61-A608-3E52FAE3934F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1038E6C3-B948-4B61-A608-3E52FAE3934F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7E3BC7-6849-446D-B339-98B0F1D1A3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7E3BC7-6849-446D-B339-98B0F1D1A3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7E3BC7-6849-446D-B339-98B0F1D1A3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7E3BC7-6849-446D-B339-98B0F1D1A3CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CD4B59F-552A-458E-A43D-EBCD91722B22} = {0BA47CFE-5493-42F8-8B9C-B57EE86EBF5D}
+		{AD8993BD-6D07-4E27-B543-C3B3F819C931} = {E777C6D3-4CCB-4A4D-9E36-3615D0AF12B8}
+		{1038E6C3-B948-4B61-A608-3E52FAE3934F} = {F1A852AC-FEF5-4C19-8DB2-FF2500E6C8B8}
+		{EC7E3BC7-6849-446D-B339-98B0F1D1A3CA} = {CA3B1A96-BE02-4003-BA1E-018FBBA9998F}
 	EndGlobalSection
 EndGlobal
