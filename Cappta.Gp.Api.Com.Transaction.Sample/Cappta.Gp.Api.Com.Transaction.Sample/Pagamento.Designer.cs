@@ -106,7 +106,7 @@
             this.pagamentoDebito.TabIndex = 5;
             this.pagamentoDebito.Text = "Pagamento débito";
             this.pagamentoDebito.UseVisualStyleBackColor = true;
-            this.pagamentoDebito.Click += new System.EventHandler(this.PagamentoDebito);
+           // this.pagamentoDebito.Click += new System.EventHandler(this.PagamentoDebito);
             // 
             // pagamentoCredito
             // 
