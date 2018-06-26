@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cappta.Gp.Api.Com.Transaction.Domain;
+using System;
 using System.Windows.Forms;
 
 namespace Cappta.Gp.Api.Com.Transaction.Sample
@@ -12,6 +13,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 
         private void FormTef_Load(object sender, EventArgs e)
         {
+           
 
         }
 
@@ -25,6 +27,24 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
         {
             var pagamento = new Pagamento();
             pagamento.Show();
+        }
+
+        private TransactionFilter CreateFilter()
+        {
+            return new TransactionFilter()
+            {
+                Cnpj = cnpj.SelectedItem.ToString(),
+                Nsu = nsu.Text,
+                FinalDate = Convert.ToDateTime(finalDate.Text),
+                InitialDate = Convert.ToDateTime(initialDate.Text)
+            };
+        }
+
+        private void ExecutarOperacao_Click(object sender, EventArgs e)
+        {
+            
+            var filter = this.CreateFilter();
+            
         }
     }
 }

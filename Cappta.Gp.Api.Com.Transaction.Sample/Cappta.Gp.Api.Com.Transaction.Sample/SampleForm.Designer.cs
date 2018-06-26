@@ -44,15 +44,38 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ConciliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewApiTransaction = new System.Windows.Forms.DataGridView();
+            this.initialDate = new System.Windows.Forms.MaskedTextBox();
+            this.finalDate = new System.Windows.Forms.MaskedTextBox();
+            this.labelDateInit = new System.Windows.Forms.Label();
+            this.labelFinalDate = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cnpj = new System.Windows.Forms.ComboBox();
+            this.labelNSU = new System.Windows.Forms.Label();
+            this.nsu = new System.Windows.Forms.TextBox();
+            this.ExecutarOperacao = new System.Windows.Forms.Button();
             this.panelFormPrincipal.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewApiTransaction)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFormPrincipal
             // 
             this.panelFormPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelFormPrincipal.Controls.Add(this.ExecutarOperacao);
+            this.panelFormPrincipal.Controls.Add(this.nsu);
+            this.panelFormPrincipal.Controls.Add(this.labelNSU);
+            this.panelFormPrincipal.Controls.Add(this.cnpj);
+            this.panelFormPrincipal.Controls.Add(this.label2);
+            this.panelFormPrincipal.Controls.Add(this.labelFinalDate);
+            this.panelFormPrincipal.Controls.Add(this.labelDateInit);
+            this.panelFormPrincipal.Controls.Add(this.finalDate);
+            this.panelFormPrincipal.Controls.Add(this.initialDate);
+            this.panelFormPrincipal.Controls.Add(this.dataGridViewApiTransaction);
+            this.panelFormPrincipal.Controls.Add(this.label1);
             this.panelFormPrincipal.Controls.Add(this.panelMenu);
             this.panelFormPrincipal.Controls.Add(this.pictureBoxLogo);
             this.panelFormPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,6 +192,114 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(399, 27);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "API de Transações/ Portal de Vendas";
+            // 
+            // dataGridViewApiTransaction
+            // 
+            this.dataGridViewApiTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewApiTransaction.Location = new System.Drawing.Point(10, 95);
+            this.dataGridViewApiTransaction.Name = "dataGridViewApiTransaction";
+            this.dataGridViewApiTransaction.Size = new System.Drawing.Size(760, 365);
+            this.dataGridViewApiTransaction.TabIndex = 3;
+            // 
+            // initialDate
+            // 
+            this.initialDate.Location = new System.Drawing.Point(69, 522);
+            this.initialDate.Mask = "0000/00/00";
+            this.initialDate.Name = "initialDate";
+            this.initialDate.Size = new System.Drawing.Size(64, 20);
+            this.initialDate.TabIndex = 4;
+            this.initialDate.Text = "20180626";
+            this.initialDate.ValidatingType = typeof(System.DateTime);
+            // 
+            // finalDate
+            // 
+            this.finalDate.Location = new System.Drawing.Point(220, 522);
+            this.finalDate.Mask = "0000/00/00";
+            this.finalDate.Name = "finalDate";
+            this.finalDate.Size = new System.Drawing.Size(64, 20);
+            this.finalDate.TabIndex = 5;
+            this.finalDate.Text = "20180626";
+            this.finalDate.ValidatingType = typeof(System.DateTime);
+            // 
+            // labelDateInit
+            // 
+            this.labelDateInit.AutoSize = true;
+            this.labelDateInit.Location = new System.Drawing.Point(17, 527);
+            this.labelDateInit.Name = "labelDateInit";
+            this.labelDateInit.Size = new System.Drawing.Size(21, 13);
+            this.labelDateInit.TabIndex = 6;
+            this.labelDateInit.Text = "De";
+            // 
+            // labelFinalDate
+            // 
+            this.labelFinalDate.AutoSize = true;
+            this.labelFinalDate.Location = new System.Drawing.Point(156, 527);
+            this.labelFinalDate.Name = "labelFinalDate";
+            this.labelFinalDate.Size = new System.Drawing.Size(23, 13);
+            this.labelFinalDate.TabIndex = 7;
+            this.labelFinalDate.Text = "Até";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 487);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Cnpj";
+            // 
+            // cnpj
+            // 
+            this.cnpj.AutoCompleteCustomSource.AddRange(new string[] {
+            "08476665000188",
+            "71053157000123",
+            "30570051000110",
+            "34555898000186",
+            "42724382000146",
+            "38100728000168",
+            "40841182000148"});
+            this.cnpj.FormattingEnabled = true;
+            this.cnpj.Location = new System.Drawing.Point(46, 484);
+            this.cnpj.Name = "cnpj";
+            this.cnpj.Size = new System.Drawing.Size(121, 21);
+            this.cnpj.TabIndex = 9;
+            this.cnpj.Text = "08476665000188";
+            // 
+            // labelNSU
+            // 
+            this.labelNSU.AutoSize = true;
+            this.labelNSU.Location = new System.Drawing.Point(173, 487);
+            this.labelNSU.Name = "labelNSU";
+            this.labelNSU.Size = new System.Drawing.Size(30, 13);
+            this.labelNSU.TabIndex = 10;
+            this.labelNSU.Text = "NSU";
+            // 
+            // nsu
+            // 
+            this.nsu.Location = new System.Drawing.Point(220, 485);
+            this.nsu.Name = "nsu";
+            this.nsu.Size = new System.Drawing.Size(64, 20);
+            this.nsu.TabIndex = 11;
+            // 
+            // ExecutarOperacao
+            // 
+            this.ExecutarOperacao.Location = new System.Drawing.Point(494, 63);
+            this.ExecutarOperacao.Name = "ExecutarOperacao";
+            this.ExecutarOperacao.Size = new System.Drawing.Size(136, 23);
+            this.ExecutarOperacao.TabIndex = 12;
+            this.ExecutarOperacao.Text = "Pesquisar";
+            this.ExecutarOperacao.UseVisualStyleBackColor = true;
+            this.ExecutarOperacao.Click += new System.EventHandler(this.ExecutarOperacao_Click);
+            // 
             // SampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,11 +311,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormTef_Load);
             this.panelFormPrincipal.ResumeLayout(false);
+            this.panelFormPrincipal.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewApiTransaction)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,6 +339,17 @@
         private System.Windows.Forms.ToolStripMenuItem preautorizacaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem ConciliacaoToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridViewApiTransaction;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelFinalDate;
+        private System.Windows.Forms.Label labelDateInit;
+        private System.Windows.Forms.MaskedTextBox finalDate;
+        private System.Windows.Forms.MaskedTextBox initialDate;
+        private System.Windows.Forms.ComboBox cnpj;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox nsu;
+        private System.Windows.Forms.Label labelNSU;
+        private System.Windows.Forms.Button ExecutarOperacao;
     }
 }
 

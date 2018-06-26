@@ -1,14 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{83E85319-B8E2-4B9D-BFD9-CF67D0D2C4A6}</ProjectGuid>
+    <ProjectGuid>72c7352a-e570-42c1-b226-58692983847e</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cappta.Gp.Api.Com.Transaction.Application</RootNamespace>
-    <AssemblyName>Cappta.Gp.Api.Com.Transaction.Application</AssemblyName>
+    <RootNamespace>Cappta.Gp.Api.Transaction.App</RootNamespace>
+    <AssemblyName>Cappta.Gp.Api.Transaction.App</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,27 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System"/>
+    
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Xml.Linq"/>
+    <Reference Include="System.Data.DataSetExtensions"/>
+    
+    
+    <Reference Include="Microsoft.CSharp"/>
+    
+    <Reference Include="System.Data"/>
+    
+    <Reference Include="System.Xml"/>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransactionProvider.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cappta.Gp.Api.Com.Transaction.Domain\Cappta.Gp.Api.Com.Transaction.Domain.csproj">
-      <Project>{AD8993BD-6D07-4E27-B543-C3B3F819C931}</Project>
-      <Name>Cappta.Gp.Api.Com.Transaction.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cappta.Gp.Api.Com.Transaction.Infra\Cappta.Gp.Api.Com.Transaction.Infra.csproj">
-      <Project>{1038E6C3-B948-4B61-A608-3E52FAE3934F}</Project>
-      <Name>Cappta.Gp.Api.Com.Transaction.Infra</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project>
+ </Project>

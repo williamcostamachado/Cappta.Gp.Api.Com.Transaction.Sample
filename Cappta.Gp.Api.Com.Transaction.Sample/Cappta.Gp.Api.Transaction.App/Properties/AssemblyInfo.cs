@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("Cappta.Gp.Api.Com.Transaction.Application")]
+[assembly: AssemblyTitle("Cappta.Gp.Api.Transaction.App")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cappta.Gp.Api.Com.Transaction.Application")]
+[assembly: AssemblyProduct("Cappta.Gp.Api.Transaction.App")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("83e85319-b8e2-4b9d-bfd9-cf67d0d2c4a6")]
+[assembly: Guid("72c7352a-e570-42c1-b226-58692983847e")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

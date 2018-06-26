@@ -2,19 +2,13 @@
 
 namespace Cappta.Gp.Api.Com.Transaction.Domain
 {
-    class TransactionFilter
+    public class TransactionFilter
     {
-        public TransactionFilter(InstallmentType type)
-        {
-            if (type == InstallmentType.Undefined) { throw new ArgumentException(nameof(type)); }
-            this.InstallmentType = type;
-        }
-
         public string Cnpj { get; set; }
         public DateTime FinalDate { get; set; }
         public DateTime InitialDate { get; set; }
         public string Nsu { get; set; }
-        public InstallmentType InstallmentType { get; private set; }
+
 
         public bool IsValid()
         {
@@ -44,10 +38,8 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
             get
             {
                 var urlBuilder = new System.Text.StringBuilder();
-
-                urlBuilder.Append($"{InstallmentType.ToString()}/");
-                urlBuilder.Append(this.Cnpj);
-                urlBuilder.Append($"?initialDate={this.InitialDate}");
+                urlBuilder.Append($"?cnpj={this.Cnpj}");
+                urlBuilder.Append($"&initialDate={this.InitialDate}");
                 urlBuilder.Append($"&finalDate={this.FinalDate}");
 
                 if (this.HasValidNsu()) { urlBuilder.Append($"&nsu={this.Nsu}"); }

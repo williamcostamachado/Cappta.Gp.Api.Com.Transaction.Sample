@@ -101,6 +101,12 @@
   <ItemGroup>
     <None Include="Resources\cappta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cappta.Gp.Api.Com.Transaction.Domain\Cappta.Gp.Api.Com.Transaction.Domain.csproj">
+      <Project>{AD8993BD-6D07-4E27-B543-C3B3F819C931}</Project>
+      <Name>Cappta.Gp.Api.Com.Transaction.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
