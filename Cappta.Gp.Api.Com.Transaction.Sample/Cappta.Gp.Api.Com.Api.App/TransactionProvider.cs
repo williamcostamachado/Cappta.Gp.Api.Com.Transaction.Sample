@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Cappta.Gp.Api.Com.Transaction.Application
 {
-    public  class TransactionProvider
+    public class TransactionProvider
     {
-        public  IEnumerable<PerformadTransaction> GetSales(TransactionFilter filter)
+        public IEnumerable<PerformedTransaction> GetSales(TransactionFilter filter)
         {
             return ResponseTransaction.FindByFilter(filter);
         }

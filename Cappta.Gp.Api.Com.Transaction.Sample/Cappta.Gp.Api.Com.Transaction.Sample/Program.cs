@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Cappta.Gp.Api.Com.Transaction.Sample
 {
@@ -14,9 +10,9 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SampleForm());
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.Run(new SampleForm());
         }
     }
 }

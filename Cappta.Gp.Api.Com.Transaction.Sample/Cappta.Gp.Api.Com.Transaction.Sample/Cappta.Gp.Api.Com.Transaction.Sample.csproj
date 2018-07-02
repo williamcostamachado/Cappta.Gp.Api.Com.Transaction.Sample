@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cappta.Gp.Api.Com.Transaction.Sample</RootNamespace>
     <AssemblyName>Cappta.Gp.Api.Com.Transaction.Sample</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -102,6 +103,10 @@
     <None Include="Resources\cappta.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cappta.Gp.Api.Com.Api.App\Cappta.Gp.Api.Com.Api.App.csproj">
+      <Project>{E30DCB24-5D58-4793-9E61-B65C5AAE37CA}</Project>
+      <Name>Cappta.Gp.Api.Com.Api.App</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cappta.Gp.Api.Com.Transaction.Domain\Cappta.Gp.Api.Com.Transaction.Domain.csproj">
       <Project>{AD8993BD-6D07-4E27-B543-C3B3F819C931}</Project>
       <Name>Cappta.Gp.Api.Com.Transaction.Domain</Name>

@@ -1,12 +1,15 @@
 ﻿namespace Cappta.Gp.Api.Com.Transaction.Domain
 {
-    public enum InstallmentType
+    public enum ErrorCode
     {
-        Undefined,
+        Undefined = 0,
 
-        Sales,
+        Error = 101,
 
-        Receipts
+        UnauthorizedToken = 102,
+
+        ErrorCommunicatingWithBank = 103
+
     }
 }
 

@@ -3,7 +3,7 @@ using System;
 
 namespace Cappta.Gp.Api.Com.Transaction.Domain
 {
-    public class PerformadTransaction
+    public  class PerformedTransaction
     {
         [JsonProperty("cnpj")]
         public string Cnpj { get; set; }
@@ -57,12 +57,13 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
         public long? AcquirerAuthorizationCode { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset? Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [JsonProperty("dateUTC")]
-        public DateTimeOffset? DateUtc { get; set; }
+        public DateTime? DateUtc { get; set; }
 
         [JsonProperty("acquirerUniqueSequentialNumber")]
         public long? AcquirerUniqueSequentialNumber { get; set; }
+    
     }
 }

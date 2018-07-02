@@ -38,7 +38,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
             get
             {
                 var urlBuilder = new System.Text.StringBuilder();
-                urlBuilder.Append($"?cnpj={this.Cnpj}");
+                urlBuilder.Append($"cnpj={this.Cnpj}");
                 urlBuilder.Append($"&initialDate={this.InitialDate}");
                 urlBuilder.Append($"&finalDate={this.FinalDate}");
 
