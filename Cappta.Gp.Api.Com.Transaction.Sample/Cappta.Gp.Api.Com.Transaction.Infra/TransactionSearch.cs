@@ -13,10 +13,10 @@ namespace Cappta.Gp.Api.Com.Transaction.Application
             this.url = "https://transactions.cappta.com.br/api/Transaction?";
         }
 
-        public RestClient Searh(TransactionFilter filter)
+        public IRestClient Searh(TransactionFilter filter)
         {
             var urlBase = $@"{this.url}{filter.QueryString}";
-            var restClient = new RestClient(urlBase);
+            IRestClient restClient = new RestClient(urlBase);
 
             return restClient;
         }

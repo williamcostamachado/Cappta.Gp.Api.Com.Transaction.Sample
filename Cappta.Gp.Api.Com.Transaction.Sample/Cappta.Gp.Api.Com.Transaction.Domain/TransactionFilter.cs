@@ -8,8 +8,9 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
         public DateTime FinalDate { get; set; }
         public DateTime InitialDate { get; set; }
         public string Nsu { get; set; }
-
-
+        public int Pdv { get; set; }
+        public string AdministrativeCode { get; set; }
+        
         public bool IsValid()
         {
             var initialDateIsValid = this.IsValidDateTime(this.InitialDate);
@@ -41,11 +42,16 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
                 urlBuilder.Append($"cnpj={this.Cnpj}");
                 urlBuilder.Append($"&initialDate={this.InitialDate}");
                 urlBuilder.Append($"&finalDate={this.FinalDate}");
-
+               // if (this.HasValidPdv()) { urlBuilder.Append($"&nsu={this.Nsu}"); }
                 if (this.HasValidNsu()) { urlBuilder.Append($"&nsu={this.Nsu}"); }
 
                 return urlBuilder.ToString();
             }
+        }
+
+        private bool HasValidPdv()
+        {
+            throw new NotImplementedException();
         }
     }
 }

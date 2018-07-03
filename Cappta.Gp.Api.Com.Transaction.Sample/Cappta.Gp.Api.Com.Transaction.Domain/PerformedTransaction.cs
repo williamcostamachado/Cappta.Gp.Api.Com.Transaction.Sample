@@ -48,13 +48,13 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
         public string Status { get; set; }
 
         [JsonProperty("statusCode")]
-        public long? StatusCode { get; set; }
+        public int StatusCode { get; set; }
 
         [JsonProperty("responseCode")]
         public long? ResponseCode { get; set; }
 
         [JsonProperty("acquirerAuthorizationCode")]
-        public long? AcquirerAuthorizationCode { get; set; }
+        public string AcquirerAuthorizationCode { get; set; }
 
         [JsonProperty("date")]
         public DateTime? Date { get; set; }
@@ -63,7 +63,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
         public DateTime? DateUtc { get; set; }
 
         [JsonProperty("acquirerUniqueSequentialNumber")]
-        public long? AcquirerUniqueSequentialNumber { get; set; }
+        public string AcquirerUniqueSequentialNumber { get; set; }
     
     }
 }

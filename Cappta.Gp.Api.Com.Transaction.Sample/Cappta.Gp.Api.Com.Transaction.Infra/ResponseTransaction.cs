@@ -13,6 +13,9 @@ namespace Cappta.Gp.Api.Conciliacao.Aplication
         {
             var search = new TransactionSearch();
             var response = search.Searh(filter).Execute(ApiTransactionConnection.Open());
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NoContent) { return new HashSet<PerformedTransaction>(); }
+
             var transaction = JsonConvert.DeserializeObject<ApiResponse<PerformedTransaction>>(response.Content);
 
             return transaction.Results;

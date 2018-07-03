@@ -37,8 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelFinalDate = new System.Windows.Forms.Label();
             this.labelDateInit = new System.Windows.Forms.Label();
-            this.finalDate = new System.Windows.Forms.MaskedTextBox();
-            this.initialDate = new System.Windows.Forms.MaskedTextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -55,6 +53,14 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ConciliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.finalDate = new System.Windows.Forms.DateTimePicker();
+            this.initialDate = new System.Windows.Forms.DateTimePicker();
+            this.labelPdv = new System.Windows.Forms.Label();
+            this.pdv = new System.Windows.Forms.TextBox();
+            this.labelAdmCode = new System.Windows.Forms.Label();
+            this.codigoAdm = new System.Windows.Forms.TextBox();
+            this.status = new System.Windows.Forms.ComboBox();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.panelFormPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -65,6 +71,14 @@
             // panelFormPrincipal
             // 
             this.panelFormPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelFormPrincipal.Controls.Add(this.labelStatus);
+            this.panelFormPrincipal.Controls.Add(this.status);
+            this.panelFormPrincipal.Controls.Add(this.codigoAdm);
+            this.panelFormPrincipal.Controls.Add(this.labelAdmCode);
+            this.panelFormPrincipal.Controls.Add(this.pdv);
+            this.panelFormPrincipal.Controls.Add(this.labelPdv);
+            this.panelFormPrincipal.Controls.Add(this.initialDate);
+            this.panelFormPrincipal.Controls.Add(this.finalDate);
             this.panelFormPrincipal.Controls.Add(this.ExecutarOperacao);
             this.panelFormPrincipal.Controls.Add(this.nsu);
             this.panelFormPrincipal.Controls.Add(this.labelNSU);
@@ -72,8 +86,6 @@
             this.panelFormPrincipal.Controls.Add(this.label2);
             this.panelFormPrincipal.Controls.Add(this.labelFinalDate);
             this.panelFormPrincipal.Controls.Add(this.labelDateInit);
-            this.panelFormPrincipal.Controls.Add(this.finalDate);
-            this.panelFormPrincipal.Controls.Add(this.initialDate);
             this.panelFormPrincipal.Controls.Add(this.dgv);
             this.panelFormPrincipal.Controls.Add(this.label1);
             this.panelFormPrincipal.Controls.Add(this.panelMenu);
@@ -96,7 +108,7 @@
             // 
             // nsu
             // 
-            this.nsu.Location = new System.Drawing.Point(220, 485);
+            this.nsu.Location = new System.Drawing.Point(209, 484);
             this.nsu.Name = "nsu";
             this.nsu.Size = new System.Drawing.Size(64, 20);
             this.nsu.TabIndex = 11;
@@ -145,7 +157,7 @@
             // labelFinalDate
             // 
             this.labelFinalDate.AutoSize = true;
-            this.labelFinalDate.Location = new System.Drawing.Point(156, 527);
+            this.labelFinalDate.Location = new System.Drawing.Point(261, 533);
             this.labelFinalDate.Name = "labelFinalDate";
             this.labelFinalDate.Size = new System.Drawing.Size(23, 13);
             this.labelFinalDate.TabIndex = 7;
@@ -154,31 +166,11 @@
             // labelDateInit
             // 
             this.labelDateInit.AutoSize = true;
-            this.labelDateInit.Location = new System.Drawing.Point(17, 527);
+            this.labelDateInit.Location = new System.Drawing.Point(10, 533);
             this.labelDateInit.Name = "labelDateInit";
             this.labelDateInit.Size = new System.Drawing.Size(21, 13);
             this.labelDateInit.TabIndex = 6;
             this.labelDateInit.Text = "De";
-            // 
-            // finalDate
-            // 
-            this.finalDate.Location = new System.Drawing.Point(220, 522);
-            this.finalDate.Mask = "0000/00/00";
-            this.finalDate.Name = "finalDate";
-            this.finalDate.Size = new System.Drawing.Size(64, 20);
-            this.finalDate.TabIndex = 5;
-            this.finalDate.Text = "20180201";
-            this.finalDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // initialDate
-            // 
-            this.initialDate.Location = new System.Drawing.Point(69, 522);
-            this.initialDate.Mask = "0000/00/00";
-            this.initialDate.Name = "initialDate";
-            this.initialDate.Size = new System.Drawing.Size(64, 20);
-            this.initialDate.TabIndex = 4;
-            this.initialDate.Text = "20180201";
-            this.initialDate.ValidatingType = typeof(System.DateTime);
             // 
             // dgv
             // 
@@ -307,6 +299,86 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // finalDate
+            // 
+            this.finalDate.Location = new System.Drawing.Point(293, 526);
+            this.finalDate.Name = "finalDate";
+            this.finalDate.Size = new System.Drawing.Size(200, 20);
+            this.finalDate.TabIndex = 13;
+            // 
+            // initialDate
+            // 
+            this.initialDate.Location = new System.Drawing.Point(44, 527);
+            this.initialDate.Name = "initialDate";
+            this.initialDate.Size = new System.Drawing.Size(200, 20);
+            this.initialDate.TabIndex = 14;
+            // 
+            // labelPdv
+            // 
+            this.labelPdv.AutoSize = true;
+            this.labelPdv.Location = new System.Drawing.Point(279, 487);
+            this.labelPdv.Name = "labelPdv";
+            this.labelPdv.Size = new System.Drawing.Size(29, 13);
+            this.labelPdv.TabIndex = 15;
+            this.labelPdv.Text = "PDV";
+            // 
+            // pdv
+            // 
+            this.pdv.Location = new System.Drawing.Point(314, 484);
+            this.pdv.Name = "pdv";
+            this.pdv.Size = new System.Drawing.Size(49, 20);
+            this.pdv.TabIndex = 16;
+            // 
+            // labelAdmCode
+            // 
+            this.labelAdmCode.AutoSize = true;
+            this.labelAdmCode.Location = new System.Drawing.Point(380, 487);
+            this.labelAdmCode.Name = "labelAdmCode";
+            this.labelAdmCode.Size = new System.Drawing.Size(63, 13);
+            this.labelAdmCode.TabIndex = 17;
+            this.labelAdmCode.Text = "Código adm";
+            // 
+            // codigoAdm
+            // 
+            this.codigoAdm.Location = new System.Drawing.Point(446, 484);
+            this.codigoAdm.Name = "codigoAdm";
+            this.codigoAdm.Size = new System.Drawing.Size(67, 20);
+            this.codigoAdm.TabIndex = 18;
+            // 
+            // status
+            // 
+            this.status.FormattingEnabled = true;
+            this.status.Items.AddRange(new object[] {
+            "Autorizada",
+            "Confirmada",
+            "Recusada",
+            "NaoConcluida",
+            "Desfeita",
+            "Cancelando",
+            "Cancelada",
+            "CanceladaParcialmente",
+            "EmAndamento",
+            "Pendente",
+            "ConfirmadaGP",
+            "ConfirmadaPortal",
+            "ConfirmadaRobo",
+            "DesfeitaGP",
+            "DesfeitaPortal",
+            "SolicitaçãoCancelamento"});
+            this.status.Location = new System.Drawing.Point(562, 483);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(121, 21);
+            this.status.TabIndex = 19;
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(519, 487);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(37, 13);
+            this.labelStatus.TabIndex = 20;
+            this.labelStatus.Text = "Status";
+            // 
             // SampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,13 +421,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelFinalDate;
         private System.Windows.Forms.Label labelDateInit;
-        private System.Windows.Forms.MaskedTextBox finalDate;
-        private System.Windows.Forms.MaskedTextBox initialDate;
         private System.Windows.Forms.ComboBox cnpj;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nsu;
         private System.Windows.Forms.Label labelNSU;
         private System.Windows.Forms.Button ExecutarOperacao;
+        private System.Windows.Forms.DateTimePicker finalDate;
+        private System.Windows.Forms.DateTimePicker initialDate;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.ComboBox status;
+        private System.Windows.Forms.TextBox codigoAdm;
+        private System.Windows.Forms.Label labelAdmCode;
+        private System.Windows.Forms.TextBox pdv;
+        private System.Windows.Forms.Label labelPdv;
     }
 }
 
