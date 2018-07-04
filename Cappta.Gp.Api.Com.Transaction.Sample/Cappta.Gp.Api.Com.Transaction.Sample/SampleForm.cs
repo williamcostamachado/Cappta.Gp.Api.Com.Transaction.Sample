@@ -30,9 +30,9 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
             return new TransactionFilter()
             {
                 Cnpj = cnpj.Text,
-                Nsu = nsu.Text,
-                FinalDate = Convert.ToDateTime(initialDate.Text),
-                InitialDate = Convert.ToDateTime(finalDate.Text)
+                UniqueSequentialNumber = nsu.Text,
+                FinalDate = finalDate.Text,
+                InitialDate = initialDate.Text
             };
         }
 

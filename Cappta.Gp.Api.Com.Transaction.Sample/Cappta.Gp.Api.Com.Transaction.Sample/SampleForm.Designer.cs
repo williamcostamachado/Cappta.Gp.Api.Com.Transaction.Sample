@@ -53,7 +53,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ConciliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.finalDate = new System.Windows.Forms.DateTimePicker();
             this.initialDate = new System.Windows.Forms.DateTimePicker();
             this.labelPdv = new System.Windows.Forms.Label();
             this.pdv = new System.Windows.Forms.TextBox();
@@ -61,6 +60,7 @@
             this.codigoAdm = new System.Windows.Forms.TextBox();
             this.status = new System.Windows.Forms.ComboBox();
             this.labelStatus = new System.Windows.Forms.Label();
+            this.finalDate = new System.Windows.Forms.DateTimePicker();
             this.panelFormPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -71,6 +71,7 @@
             // panelFormPrincipal
             // 
             this.panelFormPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelFormPrincipal.Controls.Add(this.finalDate);
             this.panelFormPrincipal.Controls.Add(this.labelStatus);
             this.panelFormPrincipal.Controls.Add(this.status);
             this.panelFormPrincipal.Controls.Add(this.codigoAdm);
@@ -78,7 +79,6 @@
             this.panelFormPrincipal.Controls.Add(this.pdv);
             this.panelFormPrincipal.Controls.Add(this.labelPdv);
             this.panelFormPrincipal.Controls.Add(this.initialDate);
-            this.panelFormPrincipal.Controls.Add(this.finalDate);
             this.panelFormPrincipal.Controls.Add(this.ExecutarOperacao);
             this.panelFormPrincipal.Controls.Add(this.nsu);
             this.panelFormPrincipal.Controls.Add(this.labelNSU);
@@ -299,19 +299,17 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // finalDate
-            // 
-            this.finalDate.Location = new System.Drawing.Point(293, 526);
-            this.finalDate.Name = "finalDate";
-            this.finalDate.Size = new System.Drawing.Size(200, 20);
-            this.finalDate.TabIndex = 13;
-            // 
             // initialDate
             // 
+            this.initialDate.Checked = false;
+            this.initialDate.CustomFormat = "yyyy-MM-dd";
+            this.initialDate.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.initialDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.initialDate.Location = new System.Drawing.Point(44, 527);
             this.initialDate.Name = "initialDate";
-            this.initialDate.Size = new System.Drawing.Size(200, 20);
+            this.initialDate.Size = new System.Drawing.Size(200, 24);
             this.initialDate.TabIndex = 14;
+            this.initialDate.Value = new System.DateTime(2018, 7, 4, 18, 28, 28, 0);
             // 
             // labelPdv
             // 
@@ -379,6 +377,19 @@
             this.labelStatus.TabIndex = 20;
             this.labelStatus.Text = "Status";
             // 
+            // finalDate
+            // 
+            this.finalDate.CausesValidation = false;
+            this.finalDate.Checked = false;
+            this.finalDate.CustomFormat = "yyyy-MM-dd";
+            this.finalDate.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.finalDate.Location = new System.Drawing.Point(303, 527);
+            this.finalDate.Name = "finalDate";
+            this.finalDate.Size = new System.Drawing.Size(200, 24);
+            this.finalDate.TabIndex = 21;
+            this.finalDate.Value = new System.DateTime(2018, 7, 4, 18, 29, 1, 0);
+            // 
             // SampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,7 +437,6 @@
         private System.Windows.Forms.TextBox nsu;
         private System.Windows.Forms.Label labelNSU;
         private System.Windows.Forms.Button ExecutarOperacao;
-        private System.Windows.Forms.DateTimePicker finalDate;
         private System.Windows.Forms.DateTimePicker initialDate;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.ComboBox status;
@@ -434,6 +444,7 @@
         private System.Windows.Forms.Label labelAdmCode;
         private System.Windows.Forms.TextBox pdv;
         private System.Windows.Forms.Label labelPdv;
+        private System.Windows.Forms.DateTimePicker finalDate;
     }
 }
 

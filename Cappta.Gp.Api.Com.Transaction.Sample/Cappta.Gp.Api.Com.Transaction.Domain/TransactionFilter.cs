@@ -5,9 +5,9 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
     public class TransactionFilter
     {
         public string Cnpj { get; set; }
-        public DateTime FinalDate { get; set; }
-        public DateTime InitialDate { get; set; }
-        public string Nsu { get; set; }
+        public string FinalDate { get; set; }
+        public string InitialDate { get; set; }
+        public string UniqueSequentialNumber { get; set; }
         public int Pdv { get; set; }
         public string AdministrativeCode { get; set; }
         
@@ -26,12 +26,12 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
 
         private bool HasValidNsu()
         {
-            return String.IsNullOrWhiteSpace(this.Nsu) == false || this.Nsu.Length == 6;
+            return String.IsNullOrWhiteSpace(this.UniqueSequentialNumber) == false || this.UniqueSequentialNumber.Length == 6;
         }
 
-        private bool IsValidDateTime(DateTime fieldDate)
+        private bool IsValidDateTime(string fieldDate)
         {
-            return fieldDate != default(DateTime);
+            return string.IsNullOrWhiteSpace(fieldDate) == false;
         }
 
         public string QueryString
@@ -43,7 +43,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
                 urlBuilder.Append($"&initialDate={this.InitialDate}");
                 urlBuilder.Append($"&finalDate={this.FinalDate}");
                // if (this.HasValidPdv()) { urlBuilder.Append($"&nsu={this.Nsu}"); }
-                if (this.HasValidNsu()) { urlBuilder.Append($"&nsu={this.Nsu}"); }
+                if (this.HasValidNsu()) { urlBuilder.Append($"&uniqueSequentialNumber={this.UniqueSequentialNumber}"); }
 
                 return urlBuilder.ToString();
             }
