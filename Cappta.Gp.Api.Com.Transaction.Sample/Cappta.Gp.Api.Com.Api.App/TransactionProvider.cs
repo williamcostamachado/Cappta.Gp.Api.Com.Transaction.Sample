@@ -6,9 +6,14 @@ namespace Cappta.Gp.Api.Com.Transaction.Application
 {
     public class TransactionProvider
     {
-        public IEnumerable<PerformedTransaction> GetSales(TransactionFilter filter)
+        public ApiResponse<PerformedTransaction> GetSales(TransactionFilter filter)
         {
             return ResponseTransaction.FindByFilter(filter);
+        }
+
+        public ApiResponse<PerformedTransaction> GetNext(string url)
+        {
+            return ResponseTransaction.FindNext(url);
         }
     }
 }

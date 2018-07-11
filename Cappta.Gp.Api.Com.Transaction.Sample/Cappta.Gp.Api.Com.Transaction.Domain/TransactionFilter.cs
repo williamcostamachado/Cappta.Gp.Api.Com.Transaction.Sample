@@ -44,6 +44,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
                 urlBuilder.Append($"&finalDate={this.FinalDate}");
                // if (this.HasValidPdv()) { urlBuilder.Append($"&nsu={this.Nsu}"); }
                 if (this.HasValidNsu()) { urlBuilder.Append($"&uniqueSequentialNumber={this.UniqueSequentialNumber}"); }
+                urlBuilder.Append($"&limit=15");
 
                 return urlBuilder.ToString();
             }

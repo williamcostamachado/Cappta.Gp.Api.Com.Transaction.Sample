@@ -4,21 +4,34 @@ using Cappta.Gp.Api.Com.Transaction.Infra;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cappta.Gp.Api.Conciliacao.Aplication
 {
     public static class ResponseTransaction
     {
-        public static IEnumerable<PerformedTransaction> FindByFilter(TransactionFilter filter)
+        public static ApiResponse<PerformedTransaction> FindByFilter(TransactionFilter filter)
         {
-            var search = new TransactionSearch();
-            var response = search.Searh(filter).Execute(ApiTransactionConnection.Open());
+            var transactionSearch = new TransactionSearch();
+            var response = transactionSearch.Searh(filter).Execute(ApiTransactionConnection.Open());
+            return CreateApiResponse(response);
+        }
 
-            if (response.StatusCode == System.Net.HttpStatusCode.NoContent) { return new HashSet<PerformedTransaction>(); }
+        public static ApiResponse<PerformedTransaction> FindNext(string url)
+        {
+            var transactionSearch = new TransactionSearch();
+            var response = transactionSearch.Next(url).Execute(ApiTransactionConnection.Open());
+            return CreateApiResponse(response);
+        }
+
+        private static ApiResponse<PerformedTransaction> CreateApiResponse(RestSharp.IRestResponse response)
+        {
+            if (response.StatusCode == System.Net.HttpStatusCode.NoContent) { return null; }//HashSet<PerformedTransaction>(); }
+            if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout) { return null; }//new HashSet<PerformedTransaction>(); }
 
             var transaction = JsonConvert.DeserializeObject<ApiResponse<PerformedTransaction>>(response.Content);
 
-            return transaction.Results;
+            return transaction;
         }
     }
 }

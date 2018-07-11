@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleForm));
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
+            this.finalDate = new System.Windows.Forms.DateTimePicker();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.ComboBox();
+            this.codigoAdm = new System.Windows.Forms.TextBox();
+            this.labelAdmCode = new System.Windows.Forms.Label();
+            this.pdv = new System.Windows.Forms.TextBox();
+            this.labelPdv = new System.Windows.Forms.Label();
+            this.initialDate = new System.Windows.Forms.DateTimePicker();
             this.ExecutarOperacao = new System.Windows.Forms.Button();
             this.nsu = new System.Windows.Forms.TextBox();
             this.labelNSU = new System.Windows.Forms.Label();
@@ -52,25 +60,23 @@
             this.preautorizacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ConciliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previous = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.initialDate = new System.Windows.Forms.DateTimePicker();
-            this.labelPdv = new System.Windows.Forms.Label();
-            this.pdv = new System.Windows.Forms.TextBox();
-            this.labelAdmCode = new System.Windows.Forms.Label();
-            this.codigoAdm = new System.Windows.Forms.TextBox();
-            this.status = new System.Windows.Forms.ComboBox();
-            this.labelStatus = new System.Windows.Forms.Label();
-            this.finalDate = new System.Windows.Forms.DateTimePicker();
+            this.next = new System.Windows.Forms.PictureBox();
             this.panelFormPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.previous)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.next)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFormPrincipal
             // 
             this.panelFormPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelFormPrincipal.Controls.Add(this.next);
+            this.panelFormPrincipal.Controls.Add(this.previous);
             this.panelFormPrincipal.Controls.Add(this.finalDate);
             this.panelFormPrincipal.Controls.Add(this.labelStatus);
             this.panelFormPrincipal.Controls.Add(this.status);
@@ -96,9 +102,100 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(784, 561);
             this.panelFormPrincipal.TabIndex = 0;
             // 
+            // finalDate
+            // 
+            this.finalDate.CausesValidation = false;
+            this.finalDate.Checked = false;
+            this.finalDate.CustomFormat = "yyyy-MM-dd";
+            this.finalDate.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.finalDate.Location = new System.Drawing.Point(303, 527);
+            this.finalDate.Name = "finalDate";
+            this.finalDate.Size = new System.Drawing.Size(200, 24);
+            this.finalDate.TabIndex = 21;
+            this.finalDate.Value = new System.DateTime(2018, 7, 4, 18, 29, 1, 0);
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(519, 487);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(37, 13);
+            this.labelStatus.TabIndex = 20;
+            this.labelStatus.Text = "Status";
+            // 
+            // status
+            // 
+            this.status.FormattingEnabled = true;
+            this.status.Items.AddRange(new object[] {
+            "Autorizada",
+            "Confirmada",
+            "Recusada",
+            "NaoConcluida",
+            "Desfeita",
+            "Cancelando",
+            "Cancelada",
+            "CanceladaParcialmente",
+            "EmAndamento",
+            "Pendente",
+            "ConfirmadaGP",
+            "ConfirmadaPortal",
+            "ConfirmadaRobo",
+            "DesfeitaGP",
+            "DesfeitaPortal",
+            "SolicitaçãoCancelamento"});
+            this.status.Location = new System.Drawing.Point(562, 483);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(121, 21);
+            this.status.TabIndex = 19;
+            // 
+            // codigoAdm
+            // 
+            this.codigoAdm.Location = new System.Drawing.Point(446, 484);
+            this.codigoAdm.Name = "codigoAdm";
+            this.codigoAdm.Size = new System.Drawing.Size(67, 20);
+            this.codigoAdm.TabIndex = 18;
+            // 
+            // labelAdmCode
+            // 
+            this.labelAdmCode.AutoSize = true;
+            this.labelAdmCode.Location = new System.Drawing.Point(380, 487);
+            this.labelAdmCode.Name = "labelAdmCode";
+            this.labelAdmCode.Size = new System.Drawing.Size(63, 13);
+            this.labelAdmCode.TabIndex = 17;
+            this.labelAdmCode.Text = "Código adm";
+            // 
+            // pdv
+            // 
+            this.pdv.Location = new System.Drawing.Point(314, 484);
+            this.pdv.Name = "pdv";
+            this.pdv.Size = new System.Drawing.Size(49, 20);
+            this.pdv.TabIndex = 16;
+            // 
+            // labelPdv
+            // 
+            this.labelPdv.AutoSize = true;
+            this.labelPdv.Location = new System.Drawing.Point(279, 487);
+            this.labelPdv.Name = "labelPdv";
+            this.labelPdv.Size = new System.Drawing.Size(29, 13);
+            this.labelPdv.TabIndex = 15;
+            this.labelPdv.Text = "PDV";
+            // 
+            // initialDate
+            // 
+            this.initialDate.Checked = false;
+            this.initialDate.CustomFormat = "yyyy-MM-dd";
+            this.initialDate.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.initialDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.initialDate.Location = new System.Drawing.Point(44, 527);
+            this.initialDate.Name = "initialDate";
+            this.initialDate.Size = new System.Drawing.Size(200, 24);
+            this.initialDate.TabIndex = 14;
+            this.initialDate.Value = new System.DateTime(2018, 7, 4, 18, 28, 28, 0);
+            // 
             // ExecutarOperacao
             // 
-            this.ExecutarOperacao.Location = new System.Drawing.Point(494, 63);
+            this.ExecutarOperacao.Location = new System.Drawing.Point(641, 531);
             this.ExecutarOperacao.Name = "ExecutarOperacao";
             this.ExecutarOperacao.Size = new System.Drawing.Size(136, 23);
             this.ExecutarOperacao.TabIndex = 12;
@@ -176,7 +273,7 @@
             // 
             this.dgv.AllowUserToOrderColumns = true;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(10, 95);
+            this.dgv.Location = new System.Drawing.Point(10, 79);
             this.dgv.Name = "dgv";
             this.dgv.Size = new System.Drawing.Size(760, 365);
             this.dgv.TabIndex = 3;
@@ -185,7 +282,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 58);
+            this.label1.Location = new System.Drawing.Point(6, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(399, 27);
             this.label1.TabIndex = 2;
@@ -289,6 +386,16 @@
             this.ConciliacaoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.ConciliacaoToolStripMenuItem.Text = "Conciliação";
             // 
+            // previous
+            // 
+            this.previous.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.if_Previous_27869;
+            this.previous.Location = new System.Drawing.Point(11, 445);
+            this.previous.Name = "previous";
+            this.previous.Size = new System.Drawing.Size(29, 29);
+            this.previous.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.previous.TabIndex = 22;
+            this.previous.TabStop = false;
+            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.cappta;
@@ -299,96 +406,16 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // initialDate
+            // next
             // 
-            this.initialDate.Checked = false;
-            this.initialDate.CustomFormat = "yyyy-MM-dd";
-            this.initialDate.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.initialDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.initialDate.Location = new System.Drawing.Point(44, 527);
-            this.initialDate.Name = "initialDate";
-            this.initialDate.Size = new System.Drawing.Size(200, 24);
-            this.initialDate.TabIndex = 14;
-            this.initialDate.Value = new System.DateTime(2018, 7, 4, 18, 28, 28, 0);
-            // 
-            // labelPdv
-            // 
-            this.labelPdv.AutoSize = true;
-            this.labelPdv.Location = new System.Drawing.Point(279, 487);
-            this.labelPdv.Name = "labelPdv";
-            this.labelPdv.Size = new System.Drawing.Size(29, 13);
-            this.labelPdv.TabIndex = 15;
-            this.labelPdv.Text = "PDV";
-            // 
-            // pdv
-            // 
-            this.pdv.Location = new System.Drawing.Point(314, 484);
-            this.pdv.Name = "pdv";
-            this.pdv.Size = new System.Drawing.Size(49, 20);
-            this.pdv.TabIndex = 16;
-            // 
-            // labelAdmCode
-            // 
-            this.labelAdmCode.AutoSize = true;
-            this.labelAdmCode.Location = new System.Drawing.Point(380, 487);
-            this.labelAdmCode.Name = "labelAdmCode";
-            this.labelAdmCode.Size = new System.Drawing.Size(63, 13);
-            this.labelAdmCode.TabIndex = 17;
-            this.labelAdmCode.Text = "Código adm";
-            // 
-            // codigoAdm
-            // 
-            this.codigoAdm.Location = new System.Drawing.Point(446, 484);
-            this.codigoAdm.Name = "codigoAdm";
-            this.codigoAdm.Size = new System.Drawing.Size(67, 20);
-            this.codigoAdm.TabIndex = 18;
-            // 
-            // status
-            // 
-            this.status.FormattingEnabled = true;
-            this.status.Items.AddRange(new object[] {
-            "Autorizada",
-            "Confirmada",
-            "Recusada",
-            "NaoConcluida",
-            "Desfeita",
-            "Cancelando",
-            "Cancelada",
-            "CanceladaParcialmente",
-            "EmAndamento",
-            "Pendente",
-            "ConfirmadaGP",
-            "ConfirmadaPortal",
-            "ConfirmadaRobo",
-            "DesfeitaGP",
-            "DesfeitaPortal",
-            "SolicitaçãoCancelamento"});
-            this.status.Location = new System.Drawing.Point(562, 483);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(121, 21);
-            this.status.TabIndex = 19;
-            // 
-            // labelStatus
-            // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(519, 487);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(37, 13);
-            this.labelStatus.TabIndex = 20;
-            this.labelStatus.Text = "Status";
-            // 
-            // finalDate
-            // 
-            this.finalDate.CausesValidation = false;
-            this.finalDate.Checked = false;
-            this.finalDate.CustomFormat = "yyyy-MM-dd";
-            this.finalDate.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.finalDate.Location = new System.Drawing.Point(303, 527);
-            this.finalDate.Name = "finalDate";
-            this.finalDate.Size = new System.Drawing.Size(200, 24);
-            this.finalDate.TabIndex = 21;
-            this.finalDate.Value = new System.DateTime(2018, 7, 4, 18, 29, 1, 0);
+            this.next.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.if_Next_27860;
+            this.next.Location = new System.Drawing.Point(741, 445);
+            this.next.Name = "next";
+            this.next.Size = new System.Drawing.Size(29, 29);
+            this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.next.TabIndex = 23;
+            this.next.TabStop = false;
+            this.next.Click += new System.EventHandler(this.Next_Click);
             // 
             // SampleForm
             // 
@@ -406,7 +433,9 @@
             this.panelMenu.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.previous)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.next)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,6 +474,8 @@
         private System.Windows.Forms.TextBox pdv;
         private System.Windows.Forms.Label labelPdv;
         private System.Windows.Forms.DateTimePicker finalDate;
+        private System.Windows.Forms.PictureBox previous;
+        private System.Windows.Forms.PictureBox next;
     }
 }
 

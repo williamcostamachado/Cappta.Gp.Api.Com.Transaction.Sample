@@ -8,6 +8,8 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 {
     public partial class SampleForm : Form
     {
+        private string NextUrl;
+
         public SampleForm()
         {
             InitializeComponent();
@@ -41,7 +43,17 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
             var provider = new TransactionProvider();
             var filter = this.CreateFilter();
 
-            dgv.DataSource = provider.GetSales(filter).ToList();
+            var response = provider.GetSales(filter);
+
+            this.NextUrl = response.Next;
+            dgv.DataSource = response.Results;
+        }
+
+        private void Next_Click(object sender, EventArgs e)
+        {
+            
+            var provider = new TransactionProvider();
+            dgv.DataSource = provider.GetNext(NextUrl).Next;
         }
     }
 }

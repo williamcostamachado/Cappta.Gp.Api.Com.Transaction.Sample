@@ -69,5 +69,25 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_Next_27860 {
+            get {
+                object obj = ResourceManager.GetObject("if_Next_27860", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_Previous_27869 {
+            get {
+                object obj = ResourceManager.GetObject("if_Previous_27869", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
