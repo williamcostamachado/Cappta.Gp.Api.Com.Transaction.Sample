@@ -1,26 +1,31 @@
-﻿using Cappta.Gp.Api.Com.Transaction.Application;
+﻿using System;
+using Cappta.Gp.Api.Com.Transaction.Application;
 using Cappta.Gp.Api.Com.Transaction.Domain;
 using Cappta.Gp.Api.Com.Transaction.Infra;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Cappta.Gp.Api.Conciliacao.Aplication
 {
-    public static class ResponseTransaction
+    public  class ResponseTransaction
     {
-        public static ApiResponse<PerformedTransaction> FindByFilter(TransactionFilter filter)
+        public  ApiResponse<PerformedTransaction> FindByFilter(TransactionFilter filter)
         {
             var transactionSearch = new TransactionSearch();
             var response = transactionSearch.Searh(filter).Execute(ApiTransactionConnection.Open());
             return CreateApiResponse(response);
         }
 
-        public static ApiResponse<PerformedTransaction> FindNext(string url)
+        public  ApiResponse<PerformedTransaction> FindNext(string url)
         {
             var transactionSearch = new TransactionSearch();
             var response = transactionSearch.Next(url).Execute(ApiTransactionConnection.Open());
+            return CreateApiResponse(response);
+        }
+
+        public  ApiResponse<PerformedTransaction> FindPrevious(string url)
+        {
+            var transactionSearch = new TransactionSearch();
+            var response = transactionSearch.Previous(url).Execute(ApiTransactionConnection.Open());
             return CreateApiResponse(response);
         }
 

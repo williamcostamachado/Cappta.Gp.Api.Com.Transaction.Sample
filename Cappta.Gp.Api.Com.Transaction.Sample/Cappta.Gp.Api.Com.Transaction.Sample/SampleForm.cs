@@ -10,6 +10,8 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
     {
         private string NextUrl;
 
+        private string PreviousUrl;
+
         public SampleForm()
         {
             InitializeComponent();
@@ -31,10 +33,12 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
         {
             return new TransactionFilter()
             {
+                AdministrativeCode = codigoAdm.Text,
+                Pdv = (int)pdv.Value,
                 Cnpj = cnpj.Text,
                 UniqueSequentialNumber = nsu.Text,
                 FinalDate = finalDate.Text,
-                InitialDate = initialDate.Text
+                InitialDate = initialDate.Text             
             };
         }
 
@@ -42,18 +46,28 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
         {
             var provider = new TransactionProvider();
             var filter = this.CreateFilter();
+            next.Visible = true;
 
             var response = provider.GetSales(filter);
 
             this.NextUrl = response.Next;
+  
             dgv.DataSource = response.Results;
         }
 
         private void Next_Click(object sender, EventArgs e)
-        {
-            
+        {         
             var provider = new TransactionProvider();
-            dgv.DataSource = provider.GetNext(NextUrl).Next;
+            dgv.DataSource = provider.GetNext(NextUrl).Results;
+
+            this.PreviousUrl = provider.GetNext(NextUrl).Previous;
+            previous.Visible = true;
+        }
+
+        private void Previous_Click(object sender, EventArgs e)
+        {
+            var provider = new TransactionProvider();
+            dgv.DataSource = provider.GetPrevious(PreviousUrl).Results;
         }
     }
 }

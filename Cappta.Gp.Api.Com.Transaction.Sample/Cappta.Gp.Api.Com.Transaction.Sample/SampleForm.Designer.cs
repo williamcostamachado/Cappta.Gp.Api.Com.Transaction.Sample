@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleForm));
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
+            this.next = new System.Windows.Forms.PictureBox();
+            this.previous = new System.Windows.Forms.PictureBox();
             this.finalDate = new System.Windows.Forms.DateTimePicker();
             this.labelStatus = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.ComboBox();
             this.codigoAdm = new System.Windows.Forms.TextBox();
             this.labelAdmCode = new System.Windows.Forms.Label();
-            this.pdv = new System.Windows.Forms.TextBox();
             this.labelPdv = new System.Windows.Forms.Label();
             this.initialDate = new System.Windows.Forms.DateTimePicker();
             this.ExecutarOperacao = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelFinalDate = new System.Windows.Forms.Label();
             this.labelDateInit = new System.Windows.Forms.Label();
-            this.dgv = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -60,21 +60,24 @@
             this.preautorizacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ConciliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.previous = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.next = new System.Windows.Forms.PictureBox();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.pdv = new System.Windows.Forms.NumericUpDown();
             this.panelFormPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previous)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.previous)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pdv)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFormPrincipal
             // 
             this.panelFormPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelFormPrincipal.Controls.Add(this.pdv);
+            this.panelFormPrincipal.Controls.Add(this.dgv);
             this.panelFormPrincipal.Controls.Add(this.next);
             this.panelFormPrincipal.Controls.Add(this.previous);
             this.panelFormPrincipal.Controls.Add(this.finalDate);
@@ -82,7 +85,6 @@
             this.panelFormPrincipal.Controls.Add(this.status);
             this.panelFormPrincipal.Controls.Add(this.codigoAdm);
             this.panelFormPrincipal.Controls.Add(this.labelAdmCode);
-            this.panelFormPrincipal.Controls.Add(this.pdv);
             this.panelFormPrincipal.Controls.Add(this.labelPdv);
             this.panelFormPrincipal.Controls.Add(this.initialDate);
             this.panelFormPrincipal.Controls.Add(this.ExecutarOperacao);
@@ -92,7 +94,6 @@
             this.panelFormPrincipal.Controls.Add(this.label2);
             this.panelFormPrincipal.Controls.Add(this.labelFinalDate);
             this.panelFormPrincipal.Controls.Add(this.labelDateInit);
-            this.panelFormPrincipal.Controls.Add(this.dgv);
             this.panelFormPrincipal.Controls.Add(this.label1);
             this.panelFormPrincipal.Controls.Add(this.panelMenu);
             this.panelFormPrincipal.Controls.Add(this.pictureBoxLogo);
@@ -101,6 +102,34 @@
             this.panelFormPrincipal.Name = "panelFormPrincipal";
             this.panelFormPrincipal.Size = new System.Drawing.Size(784, 561);
             this.panelFormPrincipal.TabIndex = 0;
+            // 
+            // next
+            // 
+            this.next.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.next.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.next.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.if_Next_27860;
+            this.next.Location = new System.Drawing.Point(741, 445);
+            this.next.Name = "next";
+            this.next.Size = new System.Drawing.Size(29, 29);
+            this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.next.TabIndex = 23;
+            this.next.TabStop = false;
+            this.next.Visible = false;
+            this.next.Click += new System.EventHandler(this.Next_Click);
+            // 
+            // previous
+            // 
+            this.previous.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.previous.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.previous.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.if_Previous_27869;
+            this.previous.Location = new System.Drawing.Point(11, 445);
+            this.previous.Name = "previous";
+            this.previous.Size = new System.Drawing.Size(29, 29);
+            this.previous.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.previous.TabIndex = 22;
+            this.previous.TabStop = false;
+            this.previous.Visible = false;
+            this.previous.Click += new System.EventHandler(this.Previous_Click);
             // 
             // finalDate
             // 
@@ -151,7 +180,7 @@
             // 
             // codigoAdm
             // 
-            this.codigoAdm.Location = new System.Drawing.Point(446, 484);
+            this.codigoAdm.Location = new System.Drawing.Point(432, 484);
             this.codigoAdm.Name = "codigoAdm";
             this.codigoAdm.Size = new System.Drawing.Size(67, 20);
             this.codigoAdm.TabIndex = 18;
@@ -161,16 +190,9 @@
             this.labelAdmCode.AutoSize = true;
             this.labelAdmCode.Location = new System.Drawing.Point(380, 487);
             this.labelAdmCode.Name = "labelAdmCode";
-            this.labelAdmCode.Size = new System.Drawing.Size(63, 13);
+            this.labelAdmCode.Size = new System.Drawing.Size(46, 13);
             this.labelAdmCode.TabIndex = 17;
-            this.labelAdmCode.Text = "Código adm";
-            // 
-            // pdv
-            // 
-            this.pdv.Location = new System.Drawing.Point(314, 484);
-            this.pdv.Name = "pdv";
-            this.pdv.Size = new System.Drawing.Size(49, 20);
-            this.pdv.TabIndex = 16;
+            this.labelAdmCode.Text = "Controle";
             // 
             // labelPdv
             // 
@@ -195,13 +217,19 @@
             // 
             // ExecutarOperacao
             // 
-            this.ExecutarOperacao.Location = new System.Drawing.Point(641, 531);
+            this.ExecutarOperacao.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.ExecutarOperacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExecutarOperacao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ExecutarOperacao.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExecutarOperacao.ForeColor = System.Drawing.SystemColors.Control;
+            this.ExecutarOperacao.Location = new System.Drawing.Point(640, 524);
             this.ExecutarOperacao.Name = "ExecutarOperacao";
-            this.ExecutarOperacao.Size = new System.Drawing.Size(136, 23);
+            this.ExecutarOperacao.Size = new System.Drawing.Size(130, 30);
             this.ExecutarOperacao.TabIndex = 12;
             this.ExecutarOperacao.Text = "Pesquisar";
-            this.ExecutarOperacao.UseVisualStyleBackColor = true;
+            this.ExecutarOperacao.UseVisualStyleBackColor = false;
             this.ExecutarOperacao.Click += new System.EventHandler(this.ExecutarOperacao_Click);
+            this.ExecutarOperacao.Enter += new System.EventHandler(this.ExecutarOperacao_Click);
             // 
             // nsu
             // 
@@ -268,15 +296,6 @@
             this.labelDateInit.Size = new System.Drawing.Size(21, 13);
             this.labelDateInit.TabIndex = 6;
             this.labelDateInit.Text = "De";
-            // 
-            // dgv
-            // 
-            this.dgv.AllowUserToOrderColumns = true;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(10, 79);
-            this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(760, 365);
-            this.dgv.TabIndex = 3;
             // 
             // label1
             // 
@@ -386,16 +405,6 @@
             this.ConciliacaoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.ConciliacaoToolStripMenuItem.Text = "Conciliação";
             // 
-            // previous
-            // 
-            this.previous.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.if_Previous_27869;
-            this.previous.Location = new System.Drawing.Point(11, 445);
-            this.previous.Name = "previous";
-            this.previous.Size = new System.Drawing.Size(29, 29);
-            this.previous.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.previous.TabIndex = 22;
-            this.previous.TabStop = false;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.cappta;
@@ -406,16 +415,27 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // next
+            // dgv
             // 
-            this.next.Image = global::Cappta.Gp.Api.Com.Transaction.Sample.Properties.Resources.if_Next_27860;
-            this.next.Location = new System.Drawing.Point(741, 445);
-            this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(29, 29);
-            this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.next.TabIndex = 23;
-            this.next.TabStop = false;
-            this.next.Click += new System.EventHandler(this.Next_Click);
+            this.dgv.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(11, 83);
+            this.dgv.Name = "dgv";
+            this.dgv.Size = new System.Drawing.Size(759, 356);
+            this.dgv.TabIndex = 24;
+            // 
+            // pdv
+            // 
+            this.pdv.Location = new System.Drawing.Point(314, 484);
+            this.pdv.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.pdv.Name = "pdv";
+            this.pdv.Size = new System.Drawing.Size(46, 20);
+            this.pdv.TabIndex = 25;
             // 
             // SampleForm
             // 
@@ -428,14 +448,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelFormPrincipal.ResumeLayout(false);
             this.panelFormPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previous)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.previous)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pdv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -457,7 +478,6 @@
         private System.Windows.Forms.ToolStripMenuItem preautorizacaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem ConciliacaoToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelFinalDate;
         private System.Windows.Forms.Label labelDateInit;
@@ -471,11 +491,12 @@
         private System.Windows.Forms.ComboBox status;
         private System.Windows.Forms.TextBox codigoAdm;
         private System.Windows.Forms.Label labelAdmCode;
-        private System.Windows.Forms.TextBox pdv;
         private System.Windows.Forms.Label labelPdv;
         private System.Windows.Forms.DateTimePicker finalDate;
         private System.Windows.Forms.PictureBox previous;
         private System.Windows.Forms.PictureBox next;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.NumericUpDown pdv;
     }
 }
 

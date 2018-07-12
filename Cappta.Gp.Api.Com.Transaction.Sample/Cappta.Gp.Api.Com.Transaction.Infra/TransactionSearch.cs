@@ -1,4 +1,5 @@
-﻿using Cappta.Gp.Api.Com.Transaction.Domain;
+﻿using System;
+using Cappta.Gp.Api.Com.Transaction.Domain;
 using RestSharp;
 
 namespace Cappta.Gp.Api.Com.Transaction.Application
@@ -23,10 +24,19 @@ namespace Cappta.Gp.Api.Com.Transaction.Application
 
         public  IRestClient Next (string url)
         {
+            return CreateSearch(url);
+        }
+
+        public IRestClient Previous(string url)
+        {
+            return CreateSearch(url);
+        }
+
+        private IRestClient CreateSearch(string url)
+        {
             var urlBase = url;
             IRestClient restClient = new RestClient(urlBase);
             return restClient;
         }
-
     }
 }

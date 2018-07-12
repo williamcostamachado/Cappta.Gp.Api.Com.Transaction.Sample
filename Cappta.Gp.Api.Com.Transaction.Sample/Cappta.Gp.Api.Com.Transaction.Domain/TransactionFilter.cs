@@ -34,6 +34,16 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
             return string.IsNullOrWhiteSpace(fieldDate) == false;
         }
 
+        private bool HasValidAdministrativeCode()
+        {
+            return String.IsNullOrWhiteSpace(this.AdministrativeCode) == false ||  String.IsNullOrEmpty(this.AdministrativeCode) == false || AdministrativeCode.Length == 11;
+        }
+
+        private bool HasValidPdv()
+        {
+            return Pdv.Equals(0) == false;
+        }
+
         public string QueryString
         {
             get
@@ -42,17 +52,13 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
                 urlBuilder.Append($"cnpj={this.Cnpj}");
                 urlBuilder.Append($"&initialDate={this.InitialDate}");
                 urlBuilder.Append($"&finalDate={this.FinalDate}");
-               // if (this.HasValidPdv()) { urlBuilder.Append($"&nsu={this.Nsu}"); }
+                if (this.HasValidPdv()) { urlBuilder.Append($"&checkoutCode={this.Pdv}"); }
                 if (this.HasValidNsu()) { urlBuilder.Append($"&uniqueSequentialNumber={this.UniqueSequentialNumber}"); }
+                if (this.HasValidAdministrativeCode()) { urlBuilder.Append($"&administrativeCode={this.AdministrativeCode}"); }
                 urlBuilder.Append($"&limit=15");
 
                 return urlBuilder.ToString();
             }
-        }
-
-        private bool HasValidPdv()
-        {
-            throw new NotImplementedException();
         }
     }
 }
