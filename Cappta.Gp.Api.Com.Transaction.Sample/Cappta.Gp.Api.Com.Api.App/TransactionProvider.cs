@@ -1,25 +1,23 @@
 ﻿using Cappta.Gp.Api.Com.Transaction.Domain;
 using Cappta.Gp.Api.Conciliacao.Aplication;
-using System;
-using System.Collections.Generic;
 
 namespace Cappta.Gp.Api.Com.Transaction.Application
 {
     public class TransactionProvider
     {
-        ResponseTransaction response = new ResponseTransaction();
+        TransactionResponse response = new TransactionResponse();
 
-        public ApiResponse<PerformedTransaction> GetSales(TransactionFilter filter)
+        public ApiResponse<Domain.Transaction> FindByFilter(TransactionFilter filter)
         {
-            return response.FindByFilter(filter);
+            return response.Search(filter);
         }
 
-        public ApiResponse<PerformedTransaction> GetNext(string url)
+        public ApiResponse<Domain.Transaction> FindNext(string url)
         {
             return response.FindNext(url);
         }
 
-        public ApiResponse<PerformedTransaction> GetPrevious(string url)
+        public ApiResponse<Domain.Transaction> FindPrevious(string url)
         {
             return response.FindPrevious(url);
         }

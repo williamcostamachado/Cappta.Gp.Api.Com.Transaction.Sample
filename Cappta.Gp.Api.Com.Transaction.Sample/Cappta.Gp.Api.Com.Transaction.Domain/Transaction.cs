@@ -3,7 +3,7 @@ using System;
 
 namespace Cappta.Gp.Api.Com.Transaction.Domain
 {
-    public  class PerformedTransaction
+    public  class Transaction
     {
         [JsonProperty("cnpj")]
         public string Cnpj { get; set; }

@@ -6,35 +6,35 @@ using Newtonsoft.Json;
 
 namespace Cappta.Gp.Api.Conciliacao.Aplication
 {
-    public  class ResponseTransaction
+    public  class TransactionResponse
     {
-        public  ApiResponse<PerformedTransaction> FindByFilter(TransactionFilter filter)
+        public  ApiResponse<Transaction> Search(TransactionFilter transactionFilter)
         {
-            var transactionSearch = new TransactionSearch();
-            var response = transactionSearch.Searh(filter).Execute(ApiTransactionConnection.Open());
+            var transactionrRequest = new TransactionRequest();
+            var response = transactionrRequest.Request(transactionFilter).Execute(ApiTransactionConnection.Open());
             return CreateApiResponse(response);
         }
 
-        public  ApiResponse<PerformedTransaction> FindNext(string url)
+        public  ApiResponse<Transaction> FindNext(string url)
         {
-            var transactionSearch = new TransactionSearch();
-            var response = transactionSearch.Next(url).Execute(ApiTransactionConnection.Open());
+            var transactionrRequest = new TransactionRequest();
+            var response = transactionrRequest.Next(url).Execute(ApiTransactionConnection.Open());
             return CreateApiResponse(response);
         }
 
-        public  ApiResponse<PerformedTransaction> FindPrevious(string url)
+        public  ApiResponse<Transaction> FindPrevious(string url)
         {
-            var transactionSearch = new TransactionSearch();
-            var response = transactionSearch.Previous(url).Execute(ApiTransactionConnection.Open());
+            var transactionrRequest = new TransactionRequest();
+            var response = transactionrRequest.Previous(url).Execute(ApiTransactionConnection.Open());
             return CreateApiResponse(response);
         }
 
-        private static ApiResponse<PerformedTransaction> CreateApiResponse(RestSharp.IRestResponse response)
+        private static ApiResponse<Transaction> CreateApiResponse(RestSharp.IRestResponse response)
         {
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent) { return null; }//HashSet<PerformedTransaction>(); }
             if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout) { return null; }//new HashSet<PerformedTransaction>(); }
 
-            var transaction = JsonConvert.DeserializeObject<ApiResponse<PerformedTransaction>>(response.Content);
+            var transaction = JsonConvert.DeserializeObject<ApiResponse<Transaction>>(response.Content);
 
             return transaction;
         }

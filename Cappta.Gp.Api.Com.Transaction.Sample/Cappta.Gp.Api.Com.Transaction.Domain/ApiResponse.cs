@@ -7,7 +7,7 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
     {
         public ApiResponse()
         {
-           // this.Results = new HashSet<T>();          
+          //  this.Results = new HashSet<T>();          
         }
 
         [JsonProperty("results")]

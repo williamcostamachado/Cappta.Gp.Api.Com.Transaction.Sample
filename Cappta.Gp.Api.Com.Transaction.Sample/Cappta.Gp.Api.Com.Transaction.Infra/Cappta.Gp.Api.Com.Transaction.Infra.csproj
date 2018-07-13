@@ -50,7 +50,7 @@
     <Compile Include="ApiTransactionConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseTransaction.cs" />
-    <Compile Include="TransactionSearch.cs" />
+    <Compile Include="TransactionRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

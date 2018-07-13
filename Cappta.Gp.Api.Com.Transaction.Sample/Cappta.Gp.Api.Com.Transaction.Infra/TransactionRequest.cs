@@ -4,17 +4,17 @@ using RestSharp;
 
 namespace Cappta.Gp.Api.Com.Transaction.Application
 {
-    public class TransactionSearch
+    public class TransactionRequest
     {
         private string url;
-        ApiResponse<PerformedTransaction> apiResponse = new ApiResponse<PerformedTransaction>();
+        ApiResponse<Domain.Transaction> apiResponse = new ApiResponse<Domain.Transaction>();
 
-        public TransactionSearch()
+        public TransactionRequest()
         {         
             this.url = "https://transactions.cappta.com.br/api/Transaction?";
         }
 
-        public IRestClient Searh(TransactionFilter filter)
+        public IRestClient Request(TransactionFilter filter)
         {
             var urlBase = $@"{this.url}{filter.QueryString}";
             IRestClient restClient = new RestClient(urlBase);
@@ -24,15 +24,15 @@ namespace Cappta.Gp.Api.Com.Transaction.Application
 
         public  IRestClient Next (string url)
         {
-            return CreateSearch(url);
+            return Get(url);
         }
 
         public IRestClient Previous(string url)
         {
-            return CreateSearch(url);
+            return Get(url);
         }
 
-        private IRestClient CreateSearch(string url)
+        private IRestClient Get(string url)
         {
             var urlBase = url;
             IRestClient restClient = new RestClient(urlBase);

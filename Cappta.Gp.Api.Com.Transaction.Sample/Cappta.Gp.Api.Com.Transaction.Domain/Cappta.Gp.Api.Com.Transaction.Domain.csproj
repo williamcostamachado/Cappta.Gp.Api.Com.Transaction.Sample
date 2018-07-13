@@ -46,7 +46,7 @@
     <Compile Include="ApiResponse.cs" />
     <Compile Include="ErrorCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PerformedTransaction.cs" />
+    <Compile Include="Transaction.cs" />
     <Compile Include="TransactionFilter.cs" />
   </ItemGroup>
   <ItemGroup>

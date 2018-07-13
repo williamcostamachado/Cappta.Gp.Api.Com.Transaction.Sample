@@ -44,11 +44,10 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 
         private void ExecutarOperacao_Click(object sender, EventArgs e)
         {
-            var provider = new TransactionProvider();
+            var transactionProvider = new TransactionProvider();
             var filter = this.CreateFilter();
-            next.Visible = true;
-
-            var response = provider.GetSales(filter);
+            
+            var response = transactionProvider.FindByFilter(filter);
 
             this.NextUrl = response.Next;
   
@@ -57,17 +56,16 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 
         private void Next_Click(object sender, EventArgs e)
         {         
-            var provider = new TransactionProvider();
-            dgv.DataSource = provider.GetNext(NextUrl).Results;
+            var transactionProvider = new TransactionProvider();
+            dgv.DataSource = transactionProvider.FindNext(NextUrl).Results;
 
-            this.PreviousUrl = provider.GetNext(NextUrl).Previous;
-            previous.Visible = true;
+            this.PreviousUrl = transactionProvider.FindNext(NextUrl).Previous;
         }
 
         private void Previous_Click(object sender, EventArgs e)
         {
-            var provider = new TransactionProvider();
-            dgv.DataSource = provider.GetPrevious(PreviousUrl).Results;
+            var transactionProvider = new TransactionProvider();
+            dgv.DataSource = transactionProvider.FindPrevious(PreviousUrl).Results;
         }
     }
 }
