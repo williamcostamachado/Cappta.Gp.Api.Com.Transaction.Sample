@@ -1,7 +1,6 @@
 ﻿using Cappta.Gp.Api.Com.Transaction.Application;
 using Cappta.Gp.Api.Com.Transaction.Domain;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Cappta.Gp.Api.Com.Transaction.Sample

@@ -3,13 +3,8 @@ using System.Collections.Generic;
 
 namespace Cappta.Gp.Api.Com.Transaction.Domain
 {
-    public class ApiResponse<T>
+    public class Response<T>
     {
-        public ApiResponse()
-        {
-          //  this.Results = new HashSet<T>();          
-        }
-
         [JsonProperty("results")]
         public IEnumerable<T> Results { get; set; }
 
@@ -18,6 +13,5 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
 
         [JsonProperty("next")]
         public string Next { get; set; }
-
     }
 }

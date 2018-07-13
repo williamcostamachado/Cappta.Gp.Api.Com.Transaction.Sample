@@ -10,12 +10,11 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
         public string UniqueSequentialNumber { get; set; }
         public int Pdv { get; set; }
         public string AdministrativeCode { get; set; }
-        
+
         public bool IsValid()
         {
             var initialDateIsValid = this.IsValidDateTime(this.InitialDate);
             var finalDateIsValid = this.IsValidDateTime(this.FinalDate);
-
             return this.HasValidCnpj() && initialDateIsValid && finalDateIsValid;
         }
 
@@ -29,20 +28,14 @@ namespace Cappta.Gp.Api.Com.Transaction.Domain
             return String.IsNullOrWhiteSpace(this.UniqueSequentialNumber) == false || this.UniqueSequentialNumber.Length == 6;
         }
 
-        private bool IsValidDateTime(string fieldDate)
-        {
-            return string.IsNullOrWhiteSpace(fieldDate) == false;
-        }
+        private bool IsValidDateTime(string fieldDate) { return string.IsNullOrWhiteSpace(fieldDate) == false; }
 
         private bool HasValidAdministrativeCode()
         {
             return String.IsNullOrWhiteSpace(this.AdministrativeCode) == false ||  String.IsNullOrEmpty(this.AdministrativeCode) == false || AdministrativeCode.Length == 11;
         }
 
-        private bool HasValidPdv()
-        {
-            return Pdv.Equals(0) == false;
-        }
+        private bool HasValidPdv() { return Pdv.Equals(0) == false; }
 
         public string QueryString
         {

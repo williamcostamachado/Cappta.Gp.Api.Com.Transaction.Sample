@@ -7,19 +7,13 @@ namespace Cappta.Gp.Api.Com.Transaction.Application
     {
         TransactionResponse response = new TransactionResponse();
 
-        public ApiResponse<Domain.Transaction> FindByFilter(TransactionFilter filter)
+        public Response<Domain.Transaction> FindByFilter(TransactionFilter filter)
         {
             return response.Search(filter);
         }
 
-        public ApiResponse<Domain.Transaction> FindNext(string url)
-        {
-            return response.FindNext(url);
-        }
-
-        public ApiResponse<Domain.Transaction> FindPrevious(string url)
-        {
-            return response.FindPrevious(url);
-        }
+        public Response<Domain.Transaction> FindNext(string url) { return response.Next(url); }
+    
+        public Response<Domain.Transaction> FindPrevious(string url) { return response.Previous(url); }
     }
 }
