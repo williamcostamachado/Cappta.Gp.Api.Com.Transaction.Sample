@@ -12,24 +12,24 @@ namespace Cappta.Gp.Api.Conciliacao.Aplication
         {
             var transactionrRequest = new TransactionRequest();
             var response = transactionrRequest.Request(transactionFilter).Execute(ApiTransactionConnection.Open());
-            return CreateApiResponse(response);
+            return Deserialize(response);
         }
 
         public  ApiResponse<Transaction> FindNext(string url)
         {
             var transactionrRequest = new TransactionRequest();
             var response = transactionrRequest.Next(url).Execute(ApiTransactionConnection.Open());
-            return CreateApiResponse(response);
+            return Deserialize(response);
         }
 
         public  ApiResponse<Transaction> FindPrevious(string url)
         {
             var transactionrRequest = new TransactionRequest();
             var response = transactionrRequest.Previous(url).Execute(ApiTransactionConnection.Open());
-            return CreateApiResponse(response);
+            return Deserialize(response);
         }
 
-        private static ApiResponse<Transaction> CreateApiResponse(RestSharp.IRestResponse response)
+        private static ApiResponse<Transaction> Deserialize(RestSharp.IRestResponse response)
         {
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent) { return null; }//HashSet<PerformedTransaction>(); }
             if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout) { return null; }//new HashSet<PerformedTransaction>(); }
