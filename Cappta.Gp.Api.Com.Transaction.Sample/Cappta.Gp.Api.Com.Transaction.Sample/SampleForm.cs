@@ -1,5 +1,7 @@
 ﻿using Cappta.Gp.Api.Com.Transaction.Application;
 using Cappta.Gp.Api.Com.Transaction.Domain;
+using Cappta.Gp.Api.Com.Transaction.Infra;
+using Cappta.Gp.Api.Conciliacao.Aplication;
 using System;
 using System.Windows.Forms;
 
@@ -11,9 +13,12 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 
         private string PreviousUrl;
 
+        private TransactionProvider transactionProvider;
+
         public SampleForm()
         {
             InitializeComponent();
+            this.transactionProvider = new TransactionProvider(new Connection(), new TransactionRequest());
         }
 
         private void ConfiguracaoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,11 +47,10 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
         }
 
         private void ExecutarOperacao_Click(object sender, EventArgs e)
-        {
-            var transactionProvider = new TransactionProvider();
+        {           
             var filter = this.CreateFilter();
             
-            var response = transactionProvider.FindByFilter(filter);
+            var response = this.transactionProvider.FindByFilter(filter);
 
             this.NextUrl = response.Next;
   
@@ -55,16 +59,14 @@ namespace Cappta.Gp.Api.Com.Transaction.Sample
 
         private void Next_Click(object sender, EventArgs e)
         {         
-            var transactionProvider = new TransactionProvider();
-            dgv.DataSource = transactionProvider.FindNext(NextUrl).Results;
+            dgv.DataSource = this.transactionProvider.FindByUrl(NextUrl).Results;
 
-            this.PreviousUrl = transactionProvider.FindNext(NextUrl).Previous;
+            this.PreviousUrl = this.transactionProvider.FindByUrl(NextUrl).Previous;
         }
 
         private void Previous_Click(object sender, EventArgs e)
         {
-            var transactionProvider = new TransactionProvider();
-            dgv.DataSource = transactionProvider.FindPrevious(PreviousUrl).Results;
+            dgv.DataSource = this.transactionProvider.FindByUrl(PreviousUrl).Results;
         }
     }
 }

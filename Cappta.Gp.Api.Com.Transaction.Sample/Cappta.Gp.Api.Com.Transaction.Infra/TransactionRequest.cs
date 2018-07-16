@@ -1,9 +1,10 @@
 ﻿using Cappta.Gp.Api.Com.Transaction.Domain;
+using Cappta.Gp.Api.Com.Transaction.Infra;
 using RestSharp;
 
 namespace Cappta.Gp.Api.Com.Transaction.Application
 {
-    public class TransactionRequest
+    public class TransactionRequest : ITransactionRequest
     {
         private string url;
 
@@ -12,21 +13,21 @@ namespace Cappta.Gp.Api.Com.Transaction.Application
             this.url = "https://transactions.cappta.com.br/api/Transaction?";
         }
 
-        public IRestClient Request(TransactionFilter transactionFilter)// GrtByFilter
+        public IRestClient Request(TransactionFilter transactionFilter)
         {
             var url = $@"{this.url}{transactionFilter.QueryString}";
             return Get(url);
         }
 
-        public  IRestClient Next (string url) { return Get(url); }
+        public  IRestClient UrlRequest (string url) { return Get(url); }
 
-        public IRestClient Previous(string url) { return Get(url); }
 
-        private IRestClient Get(string url)// GrtByUrl
+        private IRestClient Get(string url)
         {
             var urlBase = url;
             IRestClient restClient = new RestClient(urlBase);
             return restClient;
         }
-    }// criaria uma pasta chamada api externa e renomeava esta classe para repositorio de transações
+
+    }
 }

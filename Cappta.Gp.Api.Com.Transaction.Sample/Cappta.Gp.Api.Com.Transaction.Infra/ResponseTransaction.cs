@@ -1,39 +1,38 @@
-﻿using Cappta.Gp.Api.Com.Transaction.Application;
-using Cappta.Gp.Api.Com.Transaction.Domain;
+﻿using Cappta.Gp.Api.Com.Transaction.Domain;
 using Cappta.Gp.Api.Com.Transaction.Infra;
 using Newtonsoft.Json;
 
 namespace Cappta.Gp.Api.Conciliacao.Aplication
 {
-    public  class TransactionResponse
+    public  class TransactionProvider
     {
         private IConnection connection;
+        private ITransactionRequest transactionRequest;
 
-        public TransactionResponse(IConnection connection)
+        public TransactionProvider(IConnection connection, ITransactionRequest transactionRequest)
         {
             this.connection = connection;
+            this.transactionRequest = transactionRequest;
         }
 
-        //ApiTransactionConnection connection = new ApiTransactionConnection();
+        public Response<Transaction> FindByFilter(TransactionFilter filter)
+        {
+            if (filter.IsValid() == false) { return null; }
 
+            return Search(filter);
+        }
+
+        public Response<Transaction> FindByUrl(string url) { return GetByUrl(url); }
+       
         public  Response<Transaction> Search(TransactionFilter transactionFilter)
-        {
-            var transactionrRequest = new TransactionRequest();
-            var response = transactionrRequest.Request(transactionFilter).Execute(connection.Open());
+        {         
+            var response = this.transactionRequest.Request(transactionFilter).Execute(connection.Open());
             return Deserialize(response);
         }
 
-        public  Response<Transaction> Next(string url)
-        {
-            var transactionrRequest = new TransactionRequest();
-            var response = transactionrRequest.Next(url).Execute(connection.Open());
-            return Deserialize(response);
-        }
-
-        public  Response<Transaction> Previous(string url)
-        {
-            var transactionrRequest = new TransactionRequest();
-            var response = transactionrRequest.Previous(url).Execute(connection.Open());
+        public  Response<Transaction> GetByUrl(string url)
+        {           
+            var response = this.transactionRequest.UrlRequest(url).Execute(connection.Open());
             return Deserialize(response);
         }
 
@@ -46,5 +45,7 @@ namespace Cappta.Gp.Api.Conciliacao.Aplication
 
             return transaction;
         }
+
+        
     }
 }

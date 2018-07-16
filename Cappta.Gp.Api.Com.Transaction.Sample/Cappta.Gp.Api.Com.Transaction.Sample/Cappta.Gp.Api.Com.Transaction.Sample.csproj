@@ -111,6 +111,10 @@
       <Project>{AD8993BD-6D07-4E27-B543-C3B3F819C931}</Project>
       <Name>Cappta.Gp.Api.Com.Transaction.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cappta.Gp.Api.Com.Transaction.Infra\Cappta.Gp.Api.Com.Transaction.Infra.csproj">
+      <Project>{1038E6C3-B948-4B61-A608-3E52FAE3934F}</Project>
+      <Name>Cappta.Gp.Api.Com.Transaction.Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\if_Next_27860.png" />

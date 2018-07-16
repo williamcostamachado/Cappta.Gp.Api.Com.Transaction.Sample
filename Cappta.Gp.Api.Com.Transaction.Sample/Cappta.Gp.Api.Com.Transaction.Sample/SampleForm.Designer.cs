@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleForm));
             this.panelFormPrincipal = new System.Windows.Forms.Panel();
+            this.pdv = new System.Windows.Forms.NumericUpDown();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.next = new System.Windows.Forms.PictureBox();
             this.previous = new System.Windows.Forms.PictureBox();
             this.finalDate = new System.Windows.Forms.DateTimePicker();
@@ -61,16 +63,14 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ConciliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.pdv = new System.Windows.Forms.NumericUpDown();
             this.panelFormPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pdv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previous)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pdv)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFormPrincipal
@@ -103,6 +103,28 @@
             this.panelFormPrincipal.Size = new System.Drawing.Size(784, 561);
             this.panelFormPrincipal.TabIndex = 0;
             // 
+            // pdv
+            // 
+            this.pdv.Location = new System.Drawing.Point(314, 484);
+            this.pdv.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.pdv.Name = "pdv";
+            this.pdv.Size = new System.Drawing.Size(46, 20);
+            this.pdv.TabIndex = 25;
+            // 
+            // dgv
+            // 
+            this.dgv.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(11, 83);
+            this.dgv.Name = "dgv";
+            this.dgv.Size = new System.Drawing.Size(759, 356);
+            this.dgv.TabIndex = 24;
+            // 
             // next
             // 
             this.next.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -114,7 +136,6 @@
             this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.next.TabIndex = 23;
             this.next.TabStop = false;
-            this.next.Visible = false;
             this.next.Click += new System.EventHandler(this.Next_Click);
             // 
             // previous
@@ -128,7 +149,6 @@
             this.previous.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.previous.TabIndex = 22;
             this.previous.TabStop = false;
-            this.previous.Visible = false;
             this.previous.Click += new System.EventHandler(this.Previous_Click);
             // 
             // finalDate
@@ -415,28 +435,6 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // dgv
-            // 
-            this.dgv.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(11, 83);
-            this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(759, 356);
-            this.dgv.TabIndex = 24;
-            // 
-            // pdv
-            // 
-            this.pdv.Location = new System.Drawing.Point(314, 484);
-            this.pdv.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.pdv.Name = "pdv";
-            this.pdv.Size = new System.Drawing.Size(46, 20);
-            this.pdv.TabIndex = 25;
-            // 
             // SampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,6 +446,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelFormPrincipal.ResumeLayout(false);
             this.panelFormPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pdv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.next)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previous)).EndInit();
             this.panelMenu.ResumeLayout(false);
@@ -455,8 +455,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pdv)).EndInit();
             this.ResumeLayout(false);
 
         }
